@@ -1,0 +1,13 @@
+тут используется внешний ключ потому что у одного родителя может быть несколько детей(поэтому это и один ко многим)
+	тут я написал вложенный цикл который считывает количество детей у каждого родителя: (все данные сохраняются в таблице Parent) 
+
+>> for i in range(2,6,1):
+...     parent = Parent.objects.get(id=i)
+...     parent.child_counter = 0
+...     parent.save()
+...     for j in range(3,8,1):
+...             child = Child.objects.get(id=j)
+...             if parent.id == child.fk_parent_id:
+...                     parent.child_counter = parent.child_counter + 1
+...     parent.save()   
+...
